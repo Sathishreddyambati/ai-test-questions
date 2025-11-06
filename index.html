@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Test Questions</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    body {
+      padding-top: 2rem;
+    }
+    main.container {
+      padding-bottom: 3rem;
+    }
+    section.question {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: #f9f9f9;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>AI Question Test</strong></li>
+    </ul>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#questions">Questions</a></li>
+      <li><a href="#" role="button">Submit</a></li>
+    </ul>
+  </nav>
+
+  <main class="container" id="questions">
+    <div class="grid">
+      <section>
+        <hgroup>
+          <h2>AI Testing Quiz</h2>
+          <h3>20 Sample Questions for Automation Testing</h3>
+        </hgroup>
+        <p>This website is for testing chatbot automation and AI data extraction. All questions are dummy examples for safe use.</p>
+      </section>
+
+      <!-- Questions Section -->
+      <section id="quiz">
+        <!-- Each question block -->
+        <script>
+          const questions = [
+            "What does HTML stand for?",
+            "Which tag is used to link a CSS file in HTML?",
+            "What does CSS stand for?",
+            "Which HTML element is used for the largest heading?",
+            "Which attribute specifies a unique identifier for an element?",
+            "What does JS stand for?",
+            "Which company developed JavaScript?",
+            "What is the correct HTML tag for inserting a line break?",
+            "Which HTML tag is used to display images?",
+            "What does HTTP stand for?",
+            "What is the purpose of the <meta> tag in HTML?",
+            "Which input type defines a slider control?",
+            "Which HTML element defines navigation links?",
+            "What is the correct syntax for referring to an external JavaScript file?",
+            "Which property is used in CSS to change text color?",
+            "Which HTML tag is used to define an unordered list?",
+            "Which CSS property controls text size?",
+            "Which HTML element defines a table row?",
+            "What does API stand for?",
+            "Which protocol is used to send web pages from server to browser?"
+          ];
+
+          const options = [
+            ["Hyper Text Markup Language", "High Text Markup Language", "Hyperlink and Text Markup Language", "None of these"],
+            ["<link>", "<css>", "<style>", "<script>"],
+            ["Cascading Style Sheets", "Creative Style System", "Computer Style Syntax", "None of these"],
+            ["<h1>", "<h6>", "<header>", "<head>"],
+            ["id", "class", "ref", "style"],
+            ["Java Syntax", "Java Style", "JavaScript", "None"],
+            ["Netscape", "Microsoft", "Google", "Apple"],
+            ["<lb>", "<br>", "<break>", "<line>"],
+            ["<image>", "<img>", "<src>", "<pic>"],
+            ["HyperText Transfer Protocol", "Hyper Transfer Text Program", "Home Tool Transfer Protocol", "None"],
+            ["To specify page metadata", "To add content", "To style elements", "To add scripts"],
+            ["range", "slider", "scale", "scroll"],
+            ["<nav>", "<menu>", "<links>", "<dir>"],
+            ["<script src='filename.js'>", "<javascript file='filename.js'>", "<js href='filename.js'>", "<script link='filename.js'>"],
+            ["color", "text-color", "font-color", "foreground"],
+            ["<ul>", "<ol>", "<li>", "<list>"],
+            ["font-size", "text-size", "size", "font"],
+            ["<tr>", "<td>", "<th>", "<row>"],
+            ["Application Programming Interface", "Applied Program Internet", "Advanced Protocol Interface", "None"],
+            ["HTTP", "FTP", "SMTP", "SSH"]
+          ];
+
+          const container = document.getElementById('quiz');
+          questions.forEach((q, i) => {
+            const section = document.createElement('section');
+            section.className = 'question';
+            section.innerHTML = `
+              <h3>Question ${i + 1}</h3>
+              <p>${q}</p>
+              <fieldset>
+                ${options[i].map(opt => `
+                  <label>
+                    <input type="radio" name="q${i}" value="${opt}" required>
+                    ${opt}
+                  </label>
+                `).join('')}
+              </fieldset>
+            `;
+            container.appendChild(section);
+          });
+        </script>
+      </section>
+
+      <section>
+        <button onclick="submitQuiz()">Submit Answers</button>
+      </section>
+    </div>
+  </main>
+
+  <section aria-label="Subscribe example">
+    <div class="container">
+      <article>
+        <hgroup>
+          <h2>Stay Updated</h2>
+          <h3>Join our newsletter for more test templates</h3>
+        </hgroup>
+        <form class="grid">
+          <input type="text" id="firstname" name="firstname" placeholder="First name" aria-label="First name" required />
+          <input type="email" id="email" name="email" placeholder="Email" aria-label="Email" required />
+          <button type="submit" onclick="event.preventDefault()">Subscribe</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small><a href="#">AI Test Site</a> • <a href="#">GitHub Pages</a></small>
+  </footer>
+
+  <script>
+    function submitQuiz() {
+      const total = 20;
+      let answered = 0;
+      for (let i = 0; i < total; i++) {
+        const q = document.querySelector(`input[name="q${i}"]:checked`);
+        if (q) answered++;
+      }
+      alert(`You answered ${answered} out of ${total} questions.`);
+    }
+  </script>
+</body>
+</html>
